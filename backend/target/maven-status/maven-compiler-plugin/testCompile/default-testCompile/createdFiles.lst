@@ -1,0 +1,4 @@
+com\ecotrack\backend\service\BadgeServiceTest.class
+com\ecotrack\backend\service\SurveyServiceTest.class
+com\ecotrack\backend\BackendApplicationTests.class
+com\ecotrack\backend\config\DataInitializerTest.class

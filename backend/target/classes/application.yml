@@ -1,0 +1,52 @@
+server:
+  port: ${SERVER_PORT:8085}
+
+app:
+  frontend-url: http://localhost:5173
+  backend-url: http://localhost:${SERVER_PORT:8085}
+  seed-demo-data: true
+  admin:
+    name: CarbonCalc Admin
+    email: admin@carboncalc.com
+    password: Admin@123
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eco
+    username: postgres
+    password: Hello
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hello@gmail.com
+    password: hsdfhgfdshytgfttt
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: google-client-id.apps.googleusercontent.com
+            client-secret: google-client-secret
+            scope: openid, profile, email
+            redirect-uri: "${app.backend-url}/login/oauth2/code/google"
+          github:
+            client-id: Iv1.0.0
+            client-secret: github-client-secret
+            scope: user:email, read:user
+            redirect-uri: "${app.backend-url}/login/oauth2/code/github"
+
+jwt:
+  secret: YourSuperSecretKeyThatIsAtLeast32CharactersLong12345
+  expiration: 86400000
